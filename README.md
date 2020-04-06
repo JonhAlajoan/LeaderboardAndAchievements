@@ -20,13 +20,10 @@ Hello, this is the basic documentation for bratus leaderboard and achievements f
 - Update and retrieve stats for achievement progress (only work with ints
 - Clear achievements for testing 
 ------------
-# Usage
-The library has 3 main scripts:
-- SteamLeaderboard.cs
-- SteamLeaderboardTarget.cs
-- SteamAchievements.cs
+# Getting Started
+## SteamAPPId
+To use any of the scripts first you'll need to configure your steamAppID. To do this simply create a .txt file called _"steam_appid.txt"_ at the root folder of your project (the folder before assets). After this, open the file and fill it only with the SteamAppId given to your game. Once you've done this, open the script  _SteamManager.cs_ and at line 86, put your AppID like shown on the image:
 
-Their usage will be explained below, but to use any of the scripts first you'll need to configure your steamAppID. To do this simply create a .txt file called _"steam_appid"_ at the root folder of your project (the folder before assets). After this, open the file and fill it only with the SteamAppId given to your game. Once you've done this, open the script  _SteamManager.cs_ and at line 86, put your AppID like shown on the image:
 <p align="center">
   <img width="807" height="711" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/AppIDExample.png">
 </p>
@@ -37,8 +34,39 @@ using BratusSteamLibraries;
 ```
 ------------
 
+## Leaderboard
+If you want to just generate a leaderboard without too much of a hassle, first create a leaderboard at: "https://partner.steamgames.com/apps/leaderboards/yourSteamAppID". after this, fill the attributes(the explaining for each attribute will be put as its separate topic), put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine:
+```C#
+SteamLeaderboard.InstantiateLeaderboard(this)
+```
+------------
+
+## Achievements and stats
+**The achievements must follow the pattern:** 
+- "ACHIEVEMENT_00"
+- "ACHIEVEMENT_01"
+- "ACHIEVEMENT_30"
+
+**The Stats must follow the pattern:**
+- "ACHIEVEMENT_00_STAT"
+- "ACHIEVEMENT_01_STAT"
+- "ACHIEVEMENT_30_STAT"
+
+If this pattern is not followed while creating the achievements and stats on steam web page, the scripts won't work. This allows total 100 achievements (0-99).
+
+If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement:
+  ```C#
+ SteamAchievements.UnlockSteamAchievement("nameOfAchievement");
+  ```
+If you want to update a Steam Stat, after creating a stat and naming as the patterns above at: "https://partner.steamgames.com/apps/stats/yourSteamAPPId", use the code below:
+  ```C#
+  //10 is the steam state value that i'm updating
+ SteamAchievements.UpdateSteamStat("nameOfAchievement", 10);
+  ```
+------------
+
 # Usage - SteamLeaderboard
-## Attributes and simple usage
+## Attributes
 <p align="center">
   <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
 </p>
@@ -59,12 +87,7 @@ using BratusSteamLibraries;
   + k_ELeaderboardDataRequestFriends = Requests the data from all your steam friends
   + k_ELeaderboardDataRequestGlobalAroundUser = Request from global data, but the range will be around the user. Eg: if the range is -3,3 it'll return the 3 results before and after the player
   + k_ELeaderboardDataRequestUsers = Can not be used, specified on Steam APi.
-  
-If you want to just generate a leaderboard without too much of a hassle, first create a leaderboard at: "https://partner.steamgames.com/apps/leaderboards/yourSteamAppID". after this, fill the editor parts (on image above) put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
 
-```C#
-SteamLeaderboard.InstantiateLeaderboard(this)
-```
 ------------
 ## Methods
 + **SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour _coroutineStart):**
@@ -84,7 +107,7 @@ SteamLeaderboard.InstantiateLeaderboard(this)
   ```
 -------------
 # Usage - SteamAchievements 
-## Attributes and simple usage
+## Attributes
 <p align="center">
   <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/exampleAchievements.png">
 </p>
@@ -103,14 +126,6 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 
 **TIP:** Before changing the achievements, you need to publish it on steam. If you change but don't publish your achievements, it won't work.
 
-If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement:
-  ```C#
- SteamAchievements.UnlockSteamAchievement("nameOfAchievement");
-  ```
-If you want to update a Steam Stat, after creating a stat and naming as the patterns above at: "https://partner.steamgames.com/apps/stats/yourSteamAPPId", use the code below:
-  ```C#
-  //10 is the steam state value that i'm updating
- SteamAchievements.UpdateSteamStat("nameOfAchievement", 10);
-  ```
+
 
 
