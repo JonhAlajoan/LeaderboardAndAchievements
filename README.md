@@ -26,7 +26,12 @@ The library has 3 main scripts:
 - SteamLeaderboardTarget.cs
 - SteamAchievements.cs
 
-Their usage will be explained below, but to use any of the scripts first you'll need to put:
+Their usage will be explained below, but to use any of the scripts first you'll need to configure your steamAppID. To do this simply create a .txt file called _"steam_appid"_ at the root folder of your project (the folder before assets). After this, open the file and fill it only with the SteamAppId given to your game. Once you've done this, open the script  _SteamManager.cs_ and at line 86, put your AppID like shown on the image:
+<p align="center">
+  <img width="807" height="711" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/Icon.png">
+</p>
+
+If you succeeded at configuring your SteamAppID, you only need to have your steam open and you're should be good to go. To use any of the scripts on this asset, you'll need to put above your script:
 ```C#
 using BratusSteamLibraries;
 ```
@@ -55,7 +60,7 @@ using BratusSteamLibraries;
   + k_ELeaderboardDataRequestGlobalAroundUser = Request from global data, but the range will be around the user. Eg: if the range is -3,3 it'll return the 3 results before and after the player
   + k_ELeaderboardDataRequestUsers = Can not be used, specified on Steam APi.
   
-If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image above) put the LeaderboardTarget.cs script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
+If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image above) put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
 
 ```C#
 SteamLeaderboard.InstantiateLeaderboard(this)
@@ -71,4 +76,16 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 + **SteamLeaderboard.UseDownloadedEntries():**
   + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified
 + **SteamLeaderboard.UpdateScore(int _score):**
-  +
+  + Update score into the Steam leaderboards The method is bool so you can use it as a condition.
++ **public static Sprite FetchAvatar(CSteamID _steamID):**
+  + fetches the avatar from given _steamID._ Normally you can get this id using 
+  ```C#
+  SteamFriends.GetFriendPersonaName(_LeaderboardEntry.m_steamIDUser)
+  ```
+-------------
+# Usage - SteamAchievements 
+## Attributes and simple usage
+<p align="center">
+  <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
+</p>
+The steam achievements are mostly done on the steam API web page (that can't be shared because of NDA)
