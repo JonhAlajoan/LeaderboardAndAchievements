@@ -45,13 +45,22 @@ SteamLeaderboard.InstantiateLeaderboard(this)
   <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
 </p>
 
-Attributes:
-- Leaderboard name: The leaderboard name from steam API web page;
-- Leaderboard cell prefab: Prefab that contains each "cell" of the leaderboard, **MUST** contain:
+- **Leaderboard name:** The leaderboard name from steam API web page;
+- **Leaderboard cell prefab:** Prefab that contains each "cell" of the leaderboard, **MUST** contain:
   + An Image GameObject
   + Two Text GameObjects (First one will be the player name, The second one will be the player score)
   + **It is important to follow this model, otherwise there'll be problems on lines 270-272**
-- Leaderboard starting range: The initial range that you want to get for your leaderboard. On common cases, this will be 0, but for instance, if you use the requestType 
+- **Leaderboard starting range:** The starting range on how many entries will be downloaded
+- **Leaderboard ending range:** The ending range on how many entries will be downloaded
+- **Distance between each cell:** The distance between each cell on your leaderboard. Depending on how your leaderboard is made, you may need to change the "-" for a "+" on line 260
+- **Upload score method:** How the score will be uploaded
+  + ELeaderboardUploadScoreMethodKeepBest = Keeps the best scores, and normally will be the one used
+  + ELeaderboardUploadScoreMethodForceUpdate = Update the score as best, independent of the score
+- **Request type:** How the leaderboard will be handled
+  + k_ELeaderboardDataRequestGlobal = Requests the data from all results
+  + k_ELeaderboardDataRequestFriends = Requests the data from all your steam friends
+  + k_ELeaderboardDataRequestGlobalAroundUser = Request from global data, but the range will be around the user. Eg: if the range is -3,3 it'll return the 3 results before and after the player
+  + k_ELeaderboardDataRequestUsers = Can not be used, specified on Steam APi.
 ------------
 
 + SteamLeaderboard.cs
