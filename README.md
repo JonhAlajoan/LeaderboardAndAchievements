@@ -32,7 +32,14 @@ using BratusSteamLibraries;
 ------------
 
 # Usage - SteamLeaderboard.cs
-If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (
+If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image below) put the LeaderboardTarget.cs script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
+
+```C#
+SteamLeaderboard.InstantiateLeaderboard(this)
+```
+
+![](https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png)
+
 + SteamLeaderboard.cs
   + SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour _coroutineStart);
   + SteamLeaderboard.FindLeaderboard();
