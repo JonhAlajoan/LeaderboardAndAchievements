@@ -32,9 +32,8 @@ using BratusSteamLibraries;
 ```
 ------------
 
-# Usage - SteamLeaderboard.cs
-
-## Simple usage
+# Usage - SteamLeaderboard
+## Attributes and simple usage
 <p align="center">
   <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
 </p>
@@ -62,10 +61,14 @@ If you want to just generate a leaderboard without too much of a hassle, after f
 SteamLeaderboard.InstantiateLeaderboard(this)
 ```
 ------------
-
-+ SteamLeaderboard.cs
-  + SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour _coroutineStart);
-  + SteamLeaderboard.FindLeaderboard();
-  + SteamLeaderboard.DownloadLeaderboardEntries();
-  + SteamLeaderboard.UseDownloadedEntries(); 
-  + SteamLeaderboard.UpdateScore();
+## Methods
++ **SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour _coroutineStart):**
+  +  Creates the leaderboard on the m_leaderboardTarget gameObject. "this" is the normal parameter, it'll get the instance of the object monobehaviour to play the coroutine.
++ **SteamLeaderboard.FindLeaderboard():**
+  + this method is used to search the leaderboard by name with a SteamAPICall
++ **SteamLeaderboard.DownloadLeaderboardEntries():**
+  + This method download the leaderboard entries from the set range
++ **SteamLeaderboard.UseDownloadedEntries():**
+  + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified
++ **SteamLeaderboard.UpdateScore(int _score):**
+  +
