@@ -28,7 +28,7 @@ The library has 3 main scripts:
 
 Their usage will be explained below, but to use any of the scripts first you'll need to configure your steamAppID. To do this simply create a .txt file called _"steam_appid"_ at the root folder of your project (the folder before assets). After this, open the file and fill it only with the SteamAppId given to your game. Once you've done this, open the script  _SteamManager.cs_ and at line 86, put your AppID like shown on the image:
 <p align="center">
-  <img width="807" height="711" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/Icon.png">
+  <img width="807" height="711" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/AppIDExample.png">
 </p>
 
 If you succeeded at configuring your SteamAppID, you only need to have your steam open and you're should be good to go. To use any of the scripts on this asset, you'll need to put above your script:
@@ -86,6 +86,6 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 # Usage - SteamAchievements 
 ## Attributes and simple usage
 <p align="center">
-  <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
+  <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/exampleAchievements.png">
 </p>
 The steam achievements are mostly done on the steam API web page (that can't be shared because of NDA)
