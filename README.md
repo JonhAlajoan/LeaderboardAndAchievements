@@ -88,7 +88,9 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 <p align="center">
   <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/exampleAchievements.png">
 </p>
+
 **Quantity of achievements:** The total quantity of achievements. If you registered 100 achievements on your game, the total quantity of achievements that you'll fill the attribute is _99_ because it counts from 0. This will be used to create the list of achievements to be used.
+
 **Pattern of achievement names:** The achievement must be named at the Steam Achievements web page as: "ACHIEVEMENT_XX" where x is the actual number of the achievement. For instance, if you have 5 achievements they must be named: 
 
 1. "ACHIEVEMENT_00"
@@ -98,6 +100,7 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 5. "ACHIEVEMENT_04"
 
 **Pattern of Steam Stats names:** If your achievements use stats (10 games won, for instance) the name of the stat must follow the rules above, but it needs to add the "_STAT_" after the achievement name. For instance, if your achievement name "ACHIEVEMENT_12" needs a stat, the stat must be an int and named: "ACHIVEMENT_12_STAT".
+
 **TIP:** Before changing the achievements, you need to publish it on steam. If you change but don't publish your achievements, it won't work.
 
 If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement:
