@@ -35,12 +35,6 @@ using BratusSteamLibraries;
 # Usage - SteamLeaderboard.cs
 
 ## Simple usage
-If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image below) put the LeaderboardTarget.cs script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
-
-```C#
-SteamLeaderboard.InstantiateLeaderboard(this)
-```
-
 <p align="center">
   <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
 </p>
@@ -61,6 +55,12 @@ SteamLeaderboard.InstantiateLeaderboard(this)
   + k_ELeaderboardDataRequestFriends = Requests the data from all your steam friends
   + k_ELeaderboardDataRequestGlobalAroundUser = Request from global data, but the range will be around the user. Eg: if the range is -3,3 it'll return the 3 results before and after the player
   + k_ELeaderboardDataRequestUsers = Can not be used, specified on Steam APi.
+  
+If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image above) put the LeaderboardTarget.cs script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
+
+```C#
+SteamLeaderboard.InstantiateLeaderboard(this)
+```
 ------------
 
 + SteamLeaderboard.cs
