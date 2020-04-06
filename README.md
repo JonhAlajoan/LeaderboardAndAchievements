@@ -60,7 +60,7 @@ using BratusSteamLibraries;
   + k_ELeaderboardDataRequestGlobalAroundUser = Request from global data, but the range will be around the user. Eg: if the range is -3,3 it'll return the 3 results before and after the player
   + k_ELeaderboardDataRequestUsers = Can not be used, specified on Steam APi.
   
-If you want to just generate a leaderboard without too much of a hassle, after filling the editor parts (on image above) put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
+If you want to just generate a leaderboard without too much of a hassle, first create a leaderboard at: "https://partner.steamgames.com/apps/leaderboards/yourSteamAppID". after this, fill the editor parts (on image above) put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine below. If you follow the image, it'll create the leaderboard recovering the information from the steam API site leaderboard called "db_teste_board", showing 5 entries from the global leaderboard.
 
 ```C#
 SteamLeaderboard.InstantiateLeaderboard(this)
@@ -88,4 +88,19 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 <p align="center">
   <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/exampleAchievements.png">
 </p>
-The steam achievements are mostly done on the steam API web page (that can't be shared because of NDA)
+**Quantity of achievements:** The total quantity of achievements. If you registered 100 achievements on your game, the total quantity of achievements that you'll fill the attribute is _99_ because it counts from 0. This will be used to create the list of achievements to be used.
+**Pattern of achievement names:** The achievement must be named at the Steam Achievements web page as: "ACHIEVEMENT_XX" where x is the actual number of the achievement. For instance, if you have 5 achievements they must be named: "ACHIEVEMENT_00", "ACHIEVEMENT_01", "ACHIEVEMENT_02", ""ACHIEVEMENT_03", "ACHIEVEMENT_04".
+**Pattern of Steam Stats names:** If your achievements use stats (10 games won, for instance) the name of the stat must follow the rules above, but it needs to add the "_STAT_" after the achievement name. For instance, if your achievement name "ACHIEVEMENT_12" needs a stat, the stat must be an int and named: "ACHIVEMENT_12_STAT".
+**TIP:** Before changing the achievements, you need to publish it on steam. If you change but don't publish your achievements, it won't work.
+
+If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement:
+  ```C#
+ SteamAchievements.UnlockSteamAchievement("nameOfAchievement");
+  ```
+If you want to update a Steam Stat, after creating a stat and naming as the patterns above at: "https://partner.steamgames.com/apps/stats/yourSteamAPPId", use the code below:
+  ```C#
+  //10 is the steam state value that i'm updating
+ SteamAchievements.UpdateSteamStat("nameOfAchievement", 10);
+  ```
+
+
