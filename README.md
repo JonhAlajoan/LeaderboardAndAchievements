@@ -1,3 +1,5 @@
+<img align="center" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/Icon.png" alt="...">
+
 ![](https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/Icon.png)
 
 
