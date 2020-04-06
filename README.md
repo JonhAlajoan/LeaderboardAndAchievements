@@ -86,6 +86,6 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 # Usage - SteamAchievements 
 ## Attributes and simple usage
 <p align="center">
-  <img width="444" height="467" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
+  <img width="450" height="63" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/ImageLeaderboard.png">
 </p>
 The steam achievements are mostly done on the steam API web page (that can't be shared because of NDA)
