@@ -110,9 +110,9 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
   + This method download the leaderboard entries from the set range
 + **SteamLeaderboard.UseDownloadedEntries():**
   + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified
-+ **SteamLeaderboard.UpdateScore(int _score):**
++ **SteamLeaderboard.UpdateScore(int score):**
   + Update score into the Steam leaderboards The method is bool so you can use it as a condition.
-+ **public static Sprite FetchAvatar(CSteamID steamID):**
++ **SteamLeaderboard.FetchAvatar(CSteamID steamID):**
   + fetches the avatar from given _steamID._ Normally you can get this id using 
   
   ```C#
