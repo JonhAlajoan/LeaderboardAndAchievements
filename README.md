@@ -104,16 +104,21 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
 ## Methods
 + **SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour coroutineStart):**
   +  Creates the leaderboard on the m_leaderboardTarget gameObject. "this" is the normal parameter, it'll get the instance of the object monobehaviour to play the coroutine.
+  
 + **SteamLeaderboard.FindLeaderboard():**
-  + this method is used to search the leaderboard by name with a SteamAPICall
+  + this method is used to search the leaderboard by name with a SteamAPICall.
+  
 + **SteamLeaderboard.DownloadLeaderboardEntries():**
-  + This method download the leaderboard entries from the set range
+  + This method download the leaderboard entries from the set range.
+  
 + **SteamLeaderboard.UseDownloadedEntries():**
-  + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified
+  + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified.
+  
 + **SteamLeaderboard.UpdateScore(int score):**
   + Update score into the Steam leaderboards The method is bool so you can use it as a condition.
+  
 + **SteamLeaderboard.FetchAvatar(CSteamID steamID):**
-  + fetches the avatar from given _steamID._ Normally you can get this id using 
+  + fetches the avatar from given _steamID._ Normally you can get this id using.
   
   ```C#
   SteamFriends.GetFriendPersonaName(_LeaderboardEntry.m_steamIDUser)
@@ -163,5 +168,9 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
   
 + **SteamAchievements.CheckAchievementAndStats(string achievementID):**
   + This function is used if you want to get the full details (Via console) on an achievement by id.
+  
+------------
 
-
+# Final Considerations
+If you have any doubts, you can contact me at _bratuscontact@gmail.com_.
+Thanks a lot for the purchase of the asset, hope it helps on your game.
