@@ -34,8 +34,11 @@ If you succeeded at configuring your SteamAppID, you need to create a empty Game
 2. SteamAchievements
 3. SteamLeaderboard
 
-It'll look like this:
+The manager will look like this:
 
+<p align="center">
+  <img width="322" height="622" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/SteamManager.png">
+</p>
 
 To use any of the scripts on this asset, you'll need to put above your script:
 ```C#
@@ -99,7 +102,7 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
 
 ------------
 ## Methods
-+ **SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour _coroutineStart):**
++ **SteamLeaderboard.InstantiateLeaderboard(MonoBehaviour coroutineStart):**
   +  Creates the leaderboard on the m_leaderboardTarget gameObject. "this" is the normal parameter, it'll get the instance of the object monobehaviour to play the coroutine.
 + **SteamLeaderboard.FindLeaderboard():**
   + this method is used to search the leaderboard by name with a SteamAPICall
@@ -109,8 +112,9 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
   + This method uses the downloaded entries to create a list of players. If you want to modify the code, the "for" index will be used as the index to get the entries to be modified
 + **SteamLeaderboard.UpdateScore(int _score):**
   + Update score into the Steam leaderboards The method is bool so you can use it as a condition.
-+ **public static Sprite FetchAvatar(CSteamID _steamID):**
++ **public static Sprite FetchAvatar(CSteamID steamID):**
   + fetches the avatar from given _steamID._ Normally you can get this id using 
+  
   ```C#
   SteamFriends.GetFriendPersonaName(_LeaderboardEntry.m_steamIDUser)
   ```
@@ -138,5 +142,20 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
 ------------
 
 ## Methods
+
+**SteamAchievements.GetAchievementIcon(string achievementID):**
+  + This method gets the icon of the achievement as of the actual state (if needed to use on a menu option for instance)
+**SteamAchievements.UpdateSteamStat(string achievementID, int statQuantity):**
+  + Update a stat by using an achievementID and the quantity to be updated.
+**SteamAchievements.GetSteamStat(string achievementID):**
+  + This method returns the stat of an achievement. (int type)
+**SteamAchievements.UnlockSteamAchievement(string achievementID):**
+  + This method unlocks an achievement by ID. Used whenever the criteria are met.
+**SteamAchievements.ClearSteamAchievement(string achievementID):**
+  + Used for testing to clear (lock) an achievement by id.
+**SteamAchievements.ClearAllSteamAchievements():**
+  + Clear all achievements. You can use it as an option for the player or for testing.
+**SteamAchievements.CheckAchievementAndStats(string achievementID):**
+  + This function is used if you want to get the full details (Via console) on an achievement by id.
 
 
