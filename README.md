@@ -21,21 +21,30 @@ Hello, this is the basic documentation for bratus leaderboard and achievements f
 - Clear achievements for testing 
 ------------
 # Getting Started
-## SteamAPPId
+## SteamAppId
 To use any of the scripts first you'll need to configure your steamAppID. To do this simply create a .txt file called _"steam_appid.txt"_ at the root folder of your project (the folder before assets). After this, open the file and fill it only with the SteamAppId given to your game. Once you've done this, open the script  _SteamManager.cs_ and at line 86, put your AppID like shown on the image:
 
 <p align="center">
-  <img width="807" height="711" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/AppIDExample.png">
+  <img width="564" height="497" src="https://github.com/bratus/LeaderboardAndAchievements/blob/master/Icons/AppIDExample.png">
 </p>
 
-If you succeeded at configuring your SteamAppID, you only need to have your steam open and you're should be good to go. To use any of the scripts on this asset, you'll need to put above your script:
+If you succeeded at configuring your SteamAppID, you need to create a empty GameObject that'll serve as the steam manager. This steam manager object will need the scripts:
+
+1. SteamManager (From steamworks.net)
+2. SteamAchievements
+3. SteamLeaderboard
+
+It'll look like this:
+
+
+To use any of the scripts on this asset, you'll need to put above your script:
 ```C#
 using BratusSteamLibraries;
 ```
 ------------
 
 ## Leaderboard
-If you want to just generate a leaderboard without too much of a hassle, first create a leaderboard at: "https://partner.steamgames.com/apps/leaderboards/yourSteamAppID". after this, fill the attributes(the explaining for each attribute will be put as its separate topic), put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine:
+If you want to just generate a leaderboard without too much of a hassle, first create a leaderboard at: "https://partner.steamgames.com/apps/leaderboards/yourSteamAppID". after this, fill the attributes(the explaining for each attribute will be put as its separate topic), put the **LeaderboardTarget.cs** script on a canvas (that'll be the leaderboard parent) and call the coroutine on the method that'll manage whenever the leaderboard will be called:
 ```C#
 SteamLeaderboard.InstantiateLeaderboard(this)
 ```
@@ -54,11 +63,11 @@ SteamLeaderboard.InstantiateLeaderboard(this)
 
 If this pattern is not followed while creating the achievements and stats on steam web page, the scripts won't work. This allows total 100 achievements (0-99).
 
-If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement:
+If you want to just unlock an achievement, after creating the achievements on the steam web page: "https://partner.steamgames.com/apps/achievements/yourSteamAPPID", use the following code to unlock the achievement whenever the criteria is met:
   ```C#
  SteamAchievements.UnlockSteamAchievement("nameOfAchievement");
   ```
-If you want to update a Steam Stat, after creating a stat and naming as the patterns above at: "https://partner.steamgames.com/apps/stats/yourSteamAPPId", use the code below:
+If you want to update a Steam Stat, after creating a stat and naming as the patterns above at: "https://partner.steamgames.com/apps/stats/yourSteamAPPId", use the code below whenever the criteria is met:
   ```C#
   //10 is the steam state value that i'm updating
  SteamAchievements.UpdateSteamStat("nameOfAchievement", 10);
@@ -126,6 +135,8 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
 
 **TIP:** Before changing the achievements, you need to publish it on steam. If you change but don't publish your achievements, it won't work.
 
+------------
 
+## Methods
 
 
