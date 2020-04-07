@@ -145,16 +145,22 @@ If you want to update a Steam Stat, after creating a stat and naming as the patt
 
 **SteamAchievements.GetAchievementIcon(string achievementID):**
   + This method gets the icon of the achievement as of the actual state (if needed to use on a menu option for instance)
+  
 **SteamAchievements.UpdateSteamStat(string achievementID, int statQuantity):**
   + Update a stat by using an achievementID and the quantity to be updated.
+  
 **SteamAchievements.GetSteamStat(string achievementID):**
   + This method returns the stat of an achievement. (int type)
+  
 **SteamAchievements.UnlockSteamAchievement(string achievementID):**
   + This method unlocks an achievement by ID. Used whenever the criteria are met.
+  
 **SteamAchievements.ClearSteamAchievement(string achievementID):**
   + Used for testing to clear (lock) an achievement by id.
+  
 **SteamAchievements.ClearAllSteamAchievements():**
   + Clear all achievements. You can use it as an option for the player or for testing.
+  
 **SteamAchievements.CheckAchievementAndStats(string achievementID):**
   + This function is used if you want to get the full details (Via console) on an achievement by id.
 
